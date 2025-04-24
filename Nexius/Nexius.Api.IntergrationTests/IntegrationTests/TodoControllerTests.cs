@@ -41,6 +41,7 @@ namespace Nexius.Api.Tests.IntegrationTests
         [Fact, Priority(0)]
         public async Task NewTodoItemRequest_AddNewTodoItem()
         {
+            // Arrange
             var request = new NewTodoItemRequest
             {
                 Description = "First todo"
@@ -48,10 +49,12 @@ namespace Nexius.Api.Tests.IntegrationTests
 
             var query = "api/todo";
 
+            // Act
             var response = await _httpClient.PostAsJsonAsync(query, request);
 
             var responseString = await response.Content.ReadAsStringAsync();
 
+            // Assert
             Assert.True(response.IsSuccessStatusCode);
 
             Assert.IsType<TodoItemResponse>(JsonConvert.DeserializeObject<TodoItemResponse>(responseString));
@@ -60,13 +63,16 @@ namespace Nexius.Api.Tests.IntegrationTests
         [Fact, Priority(1)]
         public async Task ListTodosRequest_ListsTodos()
         {
+            // Arrange
             var request = new ListTodosRequest();
             var query = "api/todo".SetQueryParams(request);
 
+            // Act
             var response = await _httpClient.GetAsync(query);
 
             var responseString = await response.Content.ReadAsStringAsync();
 
+            // Assert
             Assert.True(response.IsSuccessStatusCode);
 
             Assert.IsType<List<TodoItemResponse>>(JsonConvert.DeserializeObject<List<TodoItemResponse>>(responseString));
