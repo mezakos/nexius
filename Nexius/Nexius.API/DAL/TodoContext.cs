@@ -5,11 +5,17 @@ namespace Nexius.API.DAL
 {
     public class TodoContext : DbContext
     {
+        [ActivatorUtilitiesConstructor]
         public TodoContext(DbContextOptions<TodoContext> options) : base(options)
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public TodoContext()
+        {
+
+        }
+
+        public virtual DbSet<TodoItem> TodoItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
