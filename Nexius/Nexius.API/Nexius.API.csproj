@@ -17,7 +17,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="Nexius.Api.IntergrationTests"/>
+		<InternalsVisibleTo Include="Nexius.Api.Tests"/>
 	</ItemGroup>
 
 </Project>
