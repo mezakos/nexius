@@ -1,5 +1,3 @@
-// API/Middleware/ExceptionHandlingMiddleware.cs
-
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
